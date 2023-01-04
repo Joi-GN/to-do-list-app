@@ -1,6 +1,7 @@
 package br.todo.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -12,13 +13,34 @@ public class Task {
     private int idProject;
     private String name;
     private String description;
-    private boolean completed;
+    private boolean completed = false;
     private String notes;
-    private Date deadline;
-    private Date createdAt;
-    private Date updatedAt;
+    private LocalDate deadline;
+    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime updatedAt = LocalDateTime.now();
 
-    public Task(int id, int idProject, String name, String description, boolean completed, String notes, Date deadline, Date createdAt, Date updatedAt) {
+    //    Constructor to use to save tasks
+    public Task(int idProject, String name, String description, String notes, LocalDate deadline) {
+        this.idProject = idProject;
+        this.name = name;
+        this.description = description;
+        this.notes = notes;
+        this.deadline = deadline;
+    }
+    
+    //    Contructor to use to update tasks
+    public Task(int id, String name, String description, String notes, boolean completed, LocalDate deadline) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.notes = notes;
+        this.completed = completed;
+        this.deadline = deadline;
+    }
+    
+    //    Constructor to use to list tasks
+    public Task(int id, int idProject, String name, String description, boolean completed, String notes, LocalDate deadline,
+             LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.idProject = idProject;
         this.name = name;
@@ -70,28 +92,24 @@ public class Task {
         this.notes = notes;
     }
 
-    public Date getDeadline() {
+    public LocalDate getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdatedAt() {
+        this.updatedAt = LocalDateTime.now();
     }
 
     @Override
@@ -101,6 +119,5 @@ public class Task {
                 completed + ", notes=" + notes + ", deadline=" + deadline + 
                 ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
     }
-    
     
 }
