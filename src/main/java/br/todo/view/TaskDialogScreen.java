@@ -4,12 +4,12 @@ package br.todo.view;
  *
  * @author joice
  */
-public class ProjectDialogScreen extends javax.swing.JDialog {
+public class TaskDialogScreen extends javax.swing.JDialog {
 
     /**
      * Creates new form ProjectDialogScreen
      */
-    public ProjectDialogScreen(java.awt.Frame parent, boolean modal) {
+    public TaskDialogScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -32,19 +32,23 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jScrollPaneDescription = new javax.swing.JScrollPane();
         jTextAreaDescription = new javax.swing.JTextArea();
         jButtonAdd = new javax.swing.JButton();
+        jLabelName1 = new javax.swing.JLabel();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jLabelName2 = new javax.swing.JLabel();
+        jScrollPaneDescription1 = new javax.swing.JScrollPane();
+        jTextAreaDescription1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Adicionar Produto");
-        setMinimumSize(new java.awt.Dimension(350, 410));
-        setPreferredSize(new java.awt.Dimension(350, 410));
+        setTitle("Adicionar Tarefa");
+        setMinimumSize(new java.awt.Dimension(350, 570));
+        setPreferredSize(new java.awt.Dimension(300, 570));
         setResizable(false);
 
         jPanelHeader.setBackground(new java.awt.Color(0, 153, 102));
-        jPanelHeader.setPreferredSize(new java.awt.Dimension(225, 85));
 
         jLabelHeaderTitle.setFont(new java.awt.Font("Fira Sans Heavy", 0, 24)); // NOI18N
         jLabelHeaderTitle.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelHeaderTitle.setText("Adicionar Produto");
+        jLabelHeaderTitle.setText("Adicionar Tarefa");
 
         javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
         jPanelHeader.setLayout(jPanelHeaderLayout);
@@ -57,10 +61,10 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeaderLayout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addComponent(jLabelHeaderTitle)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
 
         jPanelBackground.setBackground(new java.awt.Color(255, 255, 255));
@@ -96,6 +100,28 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jButtonAdd.setBorderPainted(false);
         jButtonAdd.setFocusPainted(false);
 
+        jLabelName1.setFont(new java.awt.Font("Fira Sans Medium", 0, 16)); // NOI18N
+        jLabelName1.setForeground(new java.awt.Color(0, 153, 102));
+        jLabelName1.setText("Prazo");
+
+        jFormattedTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jFormattedTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+
+        jLabelName2.setFont(new java.awt.Font("Fira Sans Medium", 0, 16)); // NOI18N
+        jLabelName2.setForeground(new java.awt.Color(0, 153, 102));
+        jLabelName2.setText("Notas");
+
+        jScrollPaneDescription1.setBorder(null);
+
+        jTextAreaDescription1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextAreaDescription1.setColumns(20);
+        jTextAreaDescription1.setFont(new java.awt.Font("Fira Sans Light", 1, 14)); // NOI18N
+        jTextAreaDescription1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextAreaDescription1.setRows(5);
+        jTextAreaDescription1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jScrollPaneDescription1.setViewportView(jTextAreaDescription1);
+
         javax.swing.GroupLayout jPanelBackgroundLayout = new javax.swing.GroupLayout(jPanelBackground);
         jPanelBackground.setLayout(jPanelBackgroundLayout);
         jPanelBackgroundLayout.setHorizontalGroup(
@@ -108,11 +134,15 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackgroundLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextField1)
                     .addGroup(jPanelBackgroundLayout.createSequentialGroup()
                         .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelName)
-                            .addComponent(jLabelDescription))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabelDescription)
+                            .addComponent(jLabelName1)
+                            .addComponent(jLabelName2))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPaneDescription1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelBackgroundLayout.setVerticalGroup(
@@ -125,7 +155,15 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPaneDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelName1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelName2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPaneDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -135,7 +173,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelBackground, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -166,20 +204,21 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProjectDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaskDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProjectDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaskDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProjectDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaskDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProjectDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaskDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ProjectDialogScreen dialog = new ProjectDialogScreen(new javax.swing.JFrame(), true);
+                TaskDialogScreen dialog = new TaskDialogScreen(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -193,13 +232,18 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdd;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabelDescription;
     private javax.swing.JLabel jLabelHeaderTitle;
     private javax.swing.JLabel jLabelName;
+    private javax.swing.JLabel jLabelName1;
+    private javax.swing.JLabel jLabelName2;
     private javax.swing.JPanel jPanelBackground;
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JScrollPane jScrollPaneDescription;
+    private javax.swing.JScrollPane jScrollPaneDescription1;
     private javax.swing.JTextArea jTextAreaDescription;
+    private javax.swing.JTextArea jTextAreaDescription1;
     private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
 }

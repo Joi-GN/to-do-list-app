@@ -26,123 +26,90 @@ public class MainScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelEmptyTaskList = new javax.swing.JPanel();
-        jLabelNoTasksSubtitle = new javax.swing.JLabel();
-        jLabelNoTasksTitle = new javax.swing.JLabel();
-        jLabelNoTasksIcon = new javax.swing.JLabel();
-        jPanelProjectList = new javax.swing.JPanel();
-        jScrollPaneProjectList = new javax.swing.JScrollPane();
-        jListProjects = new javax.swing.JList<>();
-        jPanelTaskList = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableTasks = new javax.swing.JTable();
-        jPanelProjects = new javax.swing.JPanel();
-        jLabelProjectsTitle = new javax.swing.JLabel();
-        jLabelProjectAdd = new javax.swing.JLabel();
-        jPanelTasks = new javax.swing.JPanel();
-        jLabelTasksTitle = new javax.swing.JLabel();
-        jLabelTasksAdd = new javax.swing.JLabel();
         jPanelHeader = new javax.swing.JPanel();
         jLabelHeaderTitle = new javax.swing.JLabel();
         jLabelHeaderSubtitle = new javax.swing.JLabel();
-
-        jPanelEmptyTaskList.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabelNoTasksSubtitle.setFont(new java.awt.Font("Fira Sans Medium", 0, 14)); // NOI18N
-        jLabelNoTasksSubtitle.setForeground(new java.awt.Color(102, 102, 102));
-        jLabelNoTasksSubtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNoTasksSubtitle.setText("Clique no botão \"+\" para adicionar uma tarefa");
-
-        jLabelNoTasksTitle.setFont(new java.awt.Font("Fira Sans SemiBold", 0, 14)); // NOI18N
-        jLabelNoTasksTitle.setForeground(new java.awt.Color(0, 153, 102));
-        jLabelNoTasksTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNoTasksTitle.setText("Nenhuma tarefa encontrada");
-        jLabelNoTasksTitle.setToolTipText("");
-
-        jLabelNoTasksIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNoTasksIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lists.png"))); // NOI18N
-        jLabelNoTasksIcon.setVerifyInputWhenFocusTarget(false);
-
-        javax.swing.GroupLayout jPanelEmptyTaskListLayout = new javax.swing.GroupLayout(jPanelEmptyTaskList);
-        jPanelEmptyTaskList.setLayout(jPanelEmptyTaskListLayout);
-        jPanelEmptyTaskListLayout.setHorizontalGroup(
-            jPanelEmptyTaskListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEmptyTaskListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelEmptyTaskListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNoTasksIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelNoTasksTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelNoTasksSubtitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanelEmptyTaskListLayout.setVerticalGroup(
-            jPanelEmptyTaskListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelEmptyTaskListLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(jLabelNoTasksIcon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelNoTasksTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelNoTasksSubtitle)
-                .addContainerGap(69, Short.MAX_VALUE))
-        );
+        jSplitPaneProjectsTasks = new javax.swing.JSplitPane();
+        jPanelTasks = new javax.swing.JPanel();
+        jLabelTasksTitle = new javax.swing.JLabel();
+        jButtonAddTasks = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jScrollPaneTasks = new javax.swing.JScrollPane();
+        jTableTasks = new javax.swing.JTable();
+        jPanelProjects = new javax.swing.JPanel();
+        jLabelProjectsTitle = new javax.swing.JLabel();
+        jButtonAddProject = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jScrollPaneProjects = new javax.swing.JScrollPane();
+        jListProjects = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(204, 255, 204));
-        setFont(new java.awt.Font("Fira Sans Condensed Medium", 0, 14)); // NOI18N
+        setTitle("To Do List");
         setMaximumSize(new java.awt.Dimension(1600, 1200));
-        setMinimumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(400, 300));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        jPanelProjectList.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelProjectList.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelHeader.setBackground(new java.awt.Color(0, 153, 102));
 
-        jScrollPaneProjectList.setBorder(null);
+        jLabelHeaderTitle.setFont(new java.awt.Font("Fira Sans Ultra", 0, 36)); // NOI18N
+        jLabelHeaderTitle.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelHeaderTitle.setText("To Do List");
 
-        jListProjects.setBackground(new java.awt.Color(255, 255, 255));
-        jListProjects.setFont(new java.awt.Font("Fira Sans Medium", 0, 15)); // NOI18N
-        jListProjects.setForeground(new java.awt.Color(0, 0, 0));
-        jListProjects.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        jLabelHeaderSubtitle.setFont(new java.awt.Font("Fira Sans Medium", 0, 12)); // NOI18N
+        jLabelHeaderSubtitle.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelHeaderSubtitle.setText("Organize suas tarefas. Termine seus projetos.");
+
+        javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
+        jPanelHeader.setLayout(jPanelHeaderLayout);
+        jPanelHeaderLayout.setHorizontalGroup(
+            jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelHeaderLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelHeaderLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabelHeaderSubtitle))
+                    .addComponent(jLabelHeaderTitle))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelHeaderLayout.setVerticalGroup(
+            jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelHeaderLayout.createSequentialGroup()
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addComponent(jLabelHeaderTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelHeaderSubtitle)
+                .addGap(44, 44, 44))
+        );
+
+        jPanelTasks.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelTasks.setMinimumSize(new java.awt.Dimension(400, 0));
+
+        jLabelTasksTitle.setFont(new java.awt.Font("Fira Sans Heavy", 0, 18)); // NOI18N
+        jLabelTasksTitle.setForeground(new java.awt.Color(0, 153, 102));
+        jLabelTasksTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTasksTitle.setText("Tarefas");
+
+        jButtonAddTasks.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonAddTasks.setFont(new java.awt.Font("Fira Sans Medium", 1, 30)); // NOI18N
+        jButtonAddTasks.setForeground(new java.awt.Color(0, 153, 102));
+        jButtonAddTasks.setText(" + ");
+        jButtonAddTasks.setToolTipText("Adicionar nova tarefa");
+        jButtonAddTasks.setBorder(null);
+        jButtonAddTasks.setFocusPainted(false);
+        jButtonAddTasks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddTasksActionPerformed(evt);
+            }
         });
-        jListProjects.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jListProjects.setFixedCellHeight(50);
-        jListProjects.setSelectionBackground(new java.awt.Color(0, 153, 102));
-        jListProjects.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jScrollPaneProjectList.setViewportView(jListProjects);
-
-        javax.swing.GroupLayout jPanelProjectListLayout = new javax.swing.GroupLayout(jPanelProjectList);
-        jPanelProjectList.setLayout(jPanelProjectListLayout);
-        jPanelProjectListLayout.setHorizontalGroup(
-            jPanelProjectListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelProjectListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPaneProjectList)
-                .addContainerGap())
-        );
-        jPanelProjectListLayout.setVerticalGroup(
-            jPanelProjectListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelProjectListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPaneProjectList, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanelTaskList.setBackground(java.awt.Color.white);
-        jPanelTaskList.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jTableTasks.setAutoCreateRowSorter(true);
         jTableTasks.setBackground(new java.awt.Color(255, 255, 255));
-        jTableTasks.setFont(new java.awt.Font("Fira Sans Medium", 0, 12)); // NOI18N
-        jTableTasks.setForeground(new java.awt.Color(255, 255, 255));
+        jTableTasks.setFont(new java.awt.Font("Fira Sans Light", 1, 14)); // NOI18N
+        jTableTasks.setForeground(new java.awt.Color(0, 153, 102));
         jTableTasks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Nome", "Descrição", "Prazo", "Concluída"
@@ -163,151 +130,134 @@ public class MainScreen extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTableTasks.setGridColor(new java.awt.Color(0, 153, 102));
         jTableTasks.setRowHeight(50);
         jTableTasks.setRowMargin(5);
-        jTableTasks.setSelectionBackground(new java.awt.Color(153, 255, 153));
+        jTableTasks.setSelectionBackground(new java.awt.Color(204, 255, 204));
+        jTableTasks.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        jTableTasks.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableTasks.setShowGrid(false);
-        jTableTasks.setShowVerticalLines(false);
-        jScrollPane1.setViewportView(jTableTasks);
-
-        javax.swing.GroupLayout jPanelTaskListLayout = new javax.swing.GroupLayout(jPanelTaskList);
-        jPanelTaskList.setLayout(jPanelTaskListLayout);
-        jPanelTaskListLayout.setHorizontalGroup(
-            jPanelTaskListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTaskListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanelTaskListLayout.setVerticalGroup(
-            jPanelTaskListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelTaskListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanelProjects.setBackground(java.awt.Color.white);
-        jPanelProjects.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-
-        jLabelProjectsTitle.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelProjectsTitle.setFont(new java.awt.Font("Fira Sans Medium", 1, 16)); // NOI18N
-        jLabelProjectsTitle.setForeground(new java.awt.Color(0, 153, 102));
-        jLabelProjectsTitle.setText("Projetos");
-
-        jLabelProjectAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanelProjectsLayout = new javax.swing.GroupLayout(jPanelProjects);
-        jPanelProjects.setLayout(jPanelProjectsLayout);
-        jPanelProjectsLayout.setHorizontalGroup(
-            jPanelProjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelProjectsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelProjectsTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(jLabelProjectAdd)
-                .addContainerGap())
-        );
-        jPanelProjectsLayout.setVerticalGroup(
-            jPanelProjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelProjectsTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabelProjectAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-        );
-
-        jPanelTasks.setBackground(java.awt.Color.white);
-        jPanelTasks.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-
-        jLabelTasksTitle.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelTasksTitle.setFont(new java.awt.Font("Fira Sans Medium", 1, 16)); // NOI18N
-        jLabelTasksTitle.setForeground(new java.awt.Color(0, 153, 102));
-        jLabelTasksTitle.setText("Tarefas");
-
-        jLabelTasksAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
+        jTableTasks.setShowHorizontalLines(true);
+        jScrollPaneTasks.setViewportView(jTableTasks);
 
         javax.swing.GroupLayout jPanelTasksLayout = new javax.swing.GroupLayout(jPanelTasks);
         jPanelTasks.setLayout(jPanelTasksLayout);
         jPanelTasksLayout.setHorizontalGroup(
             jPanelTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2)
             .addGroup(jPanelTasksLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelTasksTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelTasksAdd)
+                .addGroup(jPanelTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneTasks, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+                    .addGroup(jPanelTasksLayout.createSequentialGroup()
+                        .addComponent(jLabelTasksTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonAddTasks)))
                 .addContainerGap())
         );
         jPanelTasksLayout.setVerticalGroup(
             jPanelTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelTasksTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabelTasksAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
-        );
-
-        jPanelHeader.setBackground(new java.awt.Color(0, 153, 102));
-        jPanelHeader.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabelHeaderTitle.setFont(new java.awt.Font("Fira Sans Heavy", 0, 28)); // NOI18N
-        jLabelHeaderTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tick.png"))); // NOI18N
-        jLabelHeaderTitle.setText(" To Do List");
-
-        jLabelHeaderSubtitle.setFont(new java.awt.Font("Fira Sans Medium", 0, 14)); // NOI18N
-        jLabelHeaderSubtitle.setText("Organize suas tarefas. Termine seus projetos.");
-
-        javax.swing.GroupLayout jPanelHeaderLayout = new javax.swing.GroupLayout(jPanelHeader);
-        jPanelHeader.setLayout(jPanelHeaderLayout);
-        jPanelHeaderLayout.setHorizontalGroup(
-            jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelHeaderTitle)
-                    .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabelHeaderSubtitle)))
-                .addContainerGap(306, Short.MAX_VALUE))
-        );
-        jPanelHeaderLayout.setVerticalGroup(
-            jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelHeaderLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jLabelHeaderTitle)
+            .addGroup(jPanelTasksLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelTasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonAddTasks, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTasksTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelHeaderSubtitle)
-                .addGap(22, 22, 22))
+                .addComponent(jScrollPaneTasks, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        jSplitPaneProjectsTasks.setRightComponent(jPanelTasks);
+
+        jPanelProjects.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelProjects.setMinimumSize(new java.awt.Dimension(150, 100));
+
+        jLabelProjectsTitle.setFont(new java.awt.Font("Fira Sans Heavy", 0, 18)); // NOI18N
+        jLabelProjectsTitle.setForeground(new java.awt.Color(0, 153, 102));
+        jLabelProjectsTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelProjectsTitle.setText("Projetos");
+
+        jButtonAddProject.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonAddProject.setFont(new java.awt.Font("Fira Sans Medium", 1, 30)); // NOI18N
+        jButtonAddProject.setForeground(new java.awt.Color(0, 153, 102));
+        jButtonAddProject.setText(" + ");
+        jButtonAddProject.setToolTipText("Adicionar novo projeto");
+        jButtonAddProject.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonAddProject.setFocusPainted(false);
+        jButtonAddProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddProjectActionPerformed(evt);
+            }
+        });
+
+        jScrollPaneProjects.setBorder(null);
+
+        jListProjects.setBackground(new java.awt.Color(255, 255, 255));
+        jListProjects.setFont(new java.awt.Font("Fira Sans Light", 1, 14)); // NOI18N
+        jListProjects.setForeground(new java.awt.Color(0, 0, 0));
+        jListProjects.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jListProjects.setFixedCellHeight(50);
+        jListProjects.setSelectionBackground(new java.awt.Color(0, 153, 102));
+        jListProjects.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jScrollPaneProjects.setViewportView(jListProjects);
+
+        javax.swing.GroupLayout jPanelProjectsLayout = new javax.swing.GroupLayout(jPanelProjects);
+        jPanelProjects.setLayout(jPanelProjectsLayout);
+        jPanelProjectsLayout.setHorizontalGroup(
+            jPanelProjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addGroup(jPanelProjectsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelProjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneProjects, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanelProjectsLayout.createSequentialGroup()
+                        .addComponent(jLabelProjectsTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addComponent(jButtonAddProject)))
+                .addContainerGap())
+        );
+        jPanelProjectsLayout.setVerticalGroup(
+            jPanelProjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelProjectsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelProjectsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonAddProject, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelProjectsTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPaneProjects, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jSplitPaneProjectsTasks.setLeftComponent(jPanelProjects);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelProjects, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelProjectList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelTaskList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelTasks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addComponent(jPanelHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jSplitPaneProjectsTasks)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanelProjects, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelTasks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelTaskList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelProjectList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(22, 22, 22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSplitPaneProjectsTasks, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAddProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddProjectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAddProjectActionPerformed
+
+    private void jButtonAddTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddTasksActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAddTasksActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,31 +295,28 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAddProject;
+    private javax.swing.JButton jButtonAddTasks;
     private javax.swing.JLabel jLabelHeaderSubtitle;
     private javax.swing.JLabel jLabelHeaderTitle;
-    private javax.swing.JLabel jLabelNoTasksIcon;
-    private javax.swing.JLabel jLabelNoTasksSubtitle;
-    private javax.swing.JLabel jLabelNoTasksTitle;
-    private javax.swing.JLabel jLabelProjectAdd;
     private javax.swing.JLabel jLabelProjectsTitle;
-    private javax.swing.JLabel jLabelTasksAdd;
     private javax.swing.JLabel jLabelTasksTitle;
     private javax.swing.JList<String> jListProjects;
-    private javax.swing.JPanel jPanelEmptyTaskList;
     private javax.swing.JPanel jPanelHeader;
-    private javax.swing.JPanel jPanelProjectList;
     private javax.swing.JPanel jPanelProjects;
-    private javax.swing.JPanel jPanelTaskList;
     private javax.swing.JPanel jPanelTasks;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPaneProjectList;
+    private javax.swing.JScrollPane jScrollPaneProjects;
+    private javax.swing.JScrollPane jScrollPaneTasks;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSplitPane jSplitPaneProjectsTasks;
     private javax.swing.JTable jTableTasks;
     // End of variables declaration//GEN-END:variables
 
     public void styleTableTasks() {
-        jTableTasks.getTableHeader().setFont(new Font("Fire Sans Medium", Font.BOLD, 14));
+        jTableTasks.getTableHeader().setFont(new Font("Fire Sans Thin", Font.BOLD, 14));
         jTableTasks.getTableHeader().setBackground(new Color(0, 153, 102));
-        jTableTasks.getTableHeader().setForeground(new Color(255, 255, 255));
+        jTableTasks.getTableHeader().setForeground(new Color(255, 255, 255));        
     }
 
 }
