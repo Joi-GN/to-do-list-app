@@ -1,10 +1,16 @@
 package br.todo.view;
 
+import br.todo.DAO.ProjectDAO;
+import br.todo.model.Project;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author joice
  */
 public class ProjectDialogScreen extends javax.swing.JDialog {
+    
+    ProjectDAO projectDAO;
 
     /**
      * Creates new form ProjectDialogScreen
@@ -12,6 +18,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
     public ProjectDialogScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        projectDAO = new ProjectDAO();
     }
 
     /**
@@ -95,6 +102,11 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jButtonAdd.setBorder(null);
         jButtonAdd.setBorderPainted(false);
         jButtonAdd.setFocusPainted(false);
+        jButtonAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAddMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelBackgroundLayout = new javax.swing.GroupLayout(jPanelBackground);
         jPanelBackground.setLayout(jPanelBackgroundLayout);
@@ -148,6 +160,26 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAddMouseClicked
+        try {
+            if (jTextFieldName.getText().isBlank()) {
+                JOptionPane.showMessageDialog(rootPane, 
+                        "Campo do nome vazio");
+            } else {
+                Project project = new Project();
+                project.setName( jTextFieldName.getText());
+                project.setDescription(jTextAreaDescription.getText());
+                projectDAO.save(project);
+                JOptionPane.showMessageDialog(rootPane, 
+                        "Projeto salvo com sucesso");
+                this.dispose();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, 
+                    "Houve um erro ao salvar o projeto: " + e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonAddMouseClicked
 
     /**
      * @param args the command line arguments
