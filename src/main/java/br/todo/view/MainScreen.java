@@ -1,19 +1,32 @@
 package br.todo.view;
 
+import br.todo.DAO.ProjectDAO;
+import br.todo.DAO.TaskDAO;
+import br.todo.model.Project;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.List;
+import javax.swing.DefaultListModel;
 
 /**
  *
  * @author joice
  */
 public class MainScreen extends javax.swing.JFrame {
+    
+    ProjectDAO projectDAO;
+    TaskDAO taskDAO;
+    DefaultListModel projectsModel;
    
     /**
      * Creates new form MainScreen
      */
     public MainScreen() {
         initComponents();
+        initDataDAO();
+        initComponentsModel();
         styleTableTasks();
     }
 
@@ -256,6 +269,12 @@ public class MainScreen extends javax.swing.JFrame {
     private void jButtonAddProjectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAddProjectMouseClicked
         ProjectDialogScreen projectDialog = new ProjectDialogScreen(this, rootPaneCheckingEnabled);
         projectDialog.setVisible(true);
+        
+        projectDialog.addWindowListener(new WindowAdapter(){
+            public void windowClosed(WindowEvent e) {
+                loadProjects();
+            }
+        });
     }//GEN-LAST:event_jButtonAddProjectMouseClicked
 
     private void jButtonAddTasksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAddTasksMouseClicked
@@ -317,7 +336,26 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JTable jTableTasks;
     // End of variables declaration//GEN-END:variables
 
-    public void styleTableTasks() {
+    private void initDataDAO() {
+        projectDAO = new ProjectDAO();
+        taskDAO = new TaskDAO();
+    }
+    
+    private void initComponentsModel() {
+        projectsModel = new DefaultListModel<>();
+        loadProjects();
+    }
+
+    private void loadProjects() {
+        List<Project> projects = projectDAO.getAllProjects();
+        projectsModel.clear();
+        for (Project project : projects) {
+            projectsModel.addElement(project);
+        }
+        jListProjects.setModel(projectsModel);
+    }
+    
+    private void styleTableTasks() {
         jTableTasks.getTableHeader().setFont(new Font("Fire Sans Thin", Font.BOLD, 14));
         jTableTasks.getTableHeader().setBackground(new Color(0, 153, 102));
         jTableTasks.getTableHeader().setForeground(new Color(255, 255, 255));        
