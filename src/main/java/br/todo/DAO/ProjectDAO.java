@@ -100,12 +100,12 @@ public class ProjectDAO {
     public void turnResultSetIntoList(List<Project> list, PreparedStatement s) {
         try(ResultSet r = s.getResultSet()) {
             while (r.next()) {
-                Project project = new Project(
-                        r.getInt("id"), 
-                        r.getString("name"),
-                        r.getString("description"),
-                        r.getObject("createdAt", LocalDateTime.class), 
-                        r.getObject("updatedAt", LocalDateTime.class));
+                Project project = new Project();
+                project.setId(r.getInt("id"));
+                project.setName(r.getString("name"));
+                project.setDescription(r.getString("description"));
+                project.setCreatedAt(r.getObject("createdAt", LocalDateTime.class));
+                project.setUpdatedAt(r.getObject("updatedAt", LocalDateTime.class));
                 list.add(project);
             }
         } catch (SQLException e) {

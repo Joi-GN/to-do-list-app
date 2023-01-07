@@ -111,16 +111,16 @@ public class TaskDAO {
     public void turnResultSetIntoList(List<Task> list, PreparedStatement s) {
         try (ResultSet r = s.getResultSet()) {
             while (r.next()) {
-                Task task = new Task(
-                        r.getInt("id"), 
-                        r.getInt("idProject"), 
-                        r.getString("name"), 
-                        r.getString("description"),
-                        r.getBoolean("completed"),
-                        r.getString("notes"), 
-                        r.getObject("deadline", LocalDate.class),
-                        r.getObject("createdAt", LocalDateTime.class),
-                        r.getObject("updatedAt", LocalDateTime.class));
+                Task task = new Task();
+                task.setId(r.getInt("id"));
+                task.setIdProject(r.getInt("idProject"));
+                task.setName(r.getString("name"));
+                task.setDescription(r.getString("description"));
+                task.setCompleted(r.getBoolean("completed"));
+                task.setNotes(r.getString("notes"));
+                task.setDeadline(r.getObject("deadline", LocalDate.class));
+                task.setCreatedAt(r.getObject("createdAt", LocalDateTime.class));
+                task.setUpdatedAt(r.getObject("updatedAt", LocalDateTime.class));
                 list.add(task);
             }
         } catch (SQLException e) {

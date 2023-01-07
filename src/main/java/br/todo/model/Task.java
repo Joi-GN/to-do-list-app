@@ -19,47 +19,22 @@ public class Task {
     private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime updatedAt = LocalDateTime.now();
 
-    //    Constructor to use to save tasks
-    public Task(int idProject, String name, String description, String notes, LocalDate deadline) {
-        this.idProject = idProject;
-        this.name = name;
-        this.description = description;
-        this.notes = notes;
-        this.deadline = deadline;
-    }
-    
-    //    Contructor to use to update tasks
-    public Task(int id, String name, String description, String notes, boolean completed, LocalDate deadline) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.notes = notes;
-        this.completed = completed;
-        this.deadline = deadline;
-    }
-    
-    //    Constructor to use to list tasks
-    public Task(int id, int idProject, String name, String description, boolean completed, String notes, LocalDate deadline,
-             LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
-        this.idProject = idProject;
-        this.name = name;
-        this.description = description;
-        this.completed = completed;
-        this.notes = notes;
-        this.deadline = deadline;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getIdProject() {
         return idProject;
     }
 
+    public void setIdProject(int idProject) {
+        this.idProject = idProject;
+    }
+    
     public String getName() {
         return name;
     }
@@ -104,12 +79,20 @@ public class Task {
         return createdAt;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
     public void setUpdatedAt() {
         this.updatedAt = LocalDateTime.now();
+    }
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override

@@ -14,30 +14,12 @@ public class Project {
     private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime updatedAt = LocalDateTime.now();
 
-    //    Constructor to use to save projects
-    public Project(String name, String description) {
-        this.name = name;
-        this.description = description;        
-    }
-    
-    //    Constructor to use to update projects
-    public Project(int id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;        
-    }
-    
-    //    Constructor to use to list projects    
-    public Project(int id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
-
     public int getId() {
         return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -60,6 +42,10 @@ public class Project {
         return createdAt;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
@@ -67,13 +53,14 @@ public class Project {
     public void setUpdatedAt() {
         this.updatedAt = LocalDateTime.now();
     }
+    
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     @Override
     public String toString() {
-        return "Project{" + "id=" + id + ", name=" + name + ", description=" + 
-                description + ", createdAt=" + createdAt + ", updatedAt=" + 
-                updatedAt + '}';
+        return this.name;
     }
-    
     
 }
