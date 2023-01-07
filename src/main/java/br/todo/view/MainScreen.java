@@ -8,7 +8,7 @@ import java.awt.Font;
  * @author joice
  */
 public class MainScreen extends javax.swing.JFrame {
-
+   
     /**
      * Creates new form MainScreen
      */
@@ -95,11 +95,11 @@ public class MainScreen extends javax.swing.JFrame {
         jButtonAddTasks.setForeground(new java.awt.Color(0, 153, 102));
         jButtonAddTasks.setText(" + ");
         jButtonAddTasks.setToolTipText("Adicionar nova tarefa");
-        jButtonAddTasks.setBorder(null);
+        jButtonAddTasks.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonAddTasks.setFocusPainted(false);
-        jButtonAddTasks.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddTasksActionPerformed(evt);
+        jButtonAddTasks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAddTasksMouseClicked(evt);
             }
         });
 
@@ -184,10 +184,12 @@ public class MainScreen extends javax.swing.JFrame {
         jButtonAddProject.setText(" + ");
         jButtonAddProject.setToolTipText("Adicionar novo projeto");
         jButtonAddProject.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonAddProject.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonAddProject.setFocusPainted(false);
-        jButtonAddProject.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddProjectActionPerformed(evt);
+        jButtonAddProject.setNextFocusableComponent(jButtonAddTasks);
+        jButtonAddProject.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAddProjectMouseClicked(evt);
             }
         });
 
@@ -251,13 +253,15 @@ public class MainScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAddProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddProjectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAddProjectActionPerformed
+    private void jButtonAddProjectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAddProjectMouseClicked
+        ProjectDialogScreen projectDialog = new ProjectDialogScreen(this, rootPaneCheckingEnabled);
+        projectDialog.setVisible(true);
+    }//GEN-LAST:event_jButtonAddProjectMouseClicked
 
-    private void jButtonAddTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddTasksActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAddTasksActionPerformed
+    private void jButtonAddTasksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAddTasksMouseClicked
+        TaskDialogScreen taskDialog = new TaskDialogScreen(this, rootPaneCheckingEnabled);
+        taskDialog.setVisible(true);
+    }//GEN-LAST:event_jButtonAddTasksMouseClicked
 
     /**
      * @param args the command line arguments
@@ -318,5 +322,5 @@ public class MainScreen extends javax.swing.JFrame {
         jTableTasks.getTableHeader().setBackground(new Color(0, 153, 102));
         jTableTasks.getTableHeader().setForeground(new Color(255, 255, 255));        
     }
-
+    
 }
