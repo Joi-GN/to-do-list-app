@@ -279,6 +279,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jButtonAddTasksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAddTasksMouseClicked
         TaskDialogScreen taskDialog = new TaskDialogScreen(this, rootPaneCheckingEnabled);
+        taskDialog.setProject(getSelectedProject());
         taskDialog.setVisible(true);
     }//GEN-LAST:event_jButtonAddTasksMouseClicked
 
@@ -353,6 +354,12 @@ public class MainScreen extends javax.swing.JFrame {
             projectsModel.addElement(project);
         }
         jListProjects.setModel(projectsModel);
+    }
+    
+    private Project getSelectedProject() {
+        int projectIndex = jListProjects.getSelectedIndex();
+	Project selectedProject = (Project) projectsModel.get(projectIndex);
+        return selectedProject;
     }
     
     private void styleTableTasks() {
