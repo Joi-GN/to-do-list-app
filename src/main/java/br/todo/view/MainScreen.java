@@ -361,6 +361,7 @@ public class MainScreen extends javax.swing.JFrame {
             jListProjects.setSelectedIndex(0);
             tasksModel = new TaskTableModel();
             jTableTasks.setModel(tasksModel);
+            loadTasks(getSelectedProject().getId());
         }
     }
 
@@ -388,7 +389,7 @@ public class MainScreen extends javax.swing.JFrame {
     private void styleTableTasks() {
         jTableTasks.getTableHeader().setFont(new Font("Fire Sans Thin", Font.BOLD, 14));
         jTableTasks.getTableHeader().setBackground(new Color(0, 153, 102));
-        jTableTasks.getTableHeader().setForeground(new Color(255, 255, 255));        
+        jTableTasks.getTableHeader().setForeground(new Color(255, 255, 255));
     }
     
 }
