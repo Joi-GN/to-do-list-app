@@ -3,6 +3,8 @@ package br.todo.view;
 import br.todo.DAO.ProjectDAO;
 import br.todo.DAO.TaskDAO;
 import br.todo.model.Project;
+import br.todo.model.Task;
+import br.todo.util.TaskTableModel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.WindowAdapter;
@@ -19,13 +21,14 @@ public class MainScreen extends javax.swing.JFrame {
     ProjectDAO projectDAO;
     TaskDAO taskDAO;
     DefaultListModel projectsModel;
+    TaskTableModel tasksModel;
    
     /**
      * Creates new form MainScreen
      */
     public MainScreen() {
         initComponents();
-        initDataDAO();
+        initDAO();
         initComponentsModel();
         styleTableTasks();
     }
@@ -215,6 +218,11 @@ public class MainScreen extends javax.swing.JFrame {
         jListProjects.setFixedCellHeight(50);
         jListProjects.setSelectionBackground(new java.awt.Color(0, 153, 102));
         jListProjects.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jListProjects.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListProjectsMouseClicked(evt);
+            }
+        });
         jScrollPaneProjects.setViewportView(jListProjects);
 
         javax.swing.GroupLayout jPanelProjectsLayout = new javax.swing.GroupLayout(jPanelProjects);
@@ -283,6 +291,10 @@ public class MainScreen extends javax.swing.JFrame {
         taskDialog.setVisible(true);
     }//GEN-LAST:event_jButtonAddTasksMouseClicked
 
+    private void jListProjectsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListProjectsMouseClicked
+        loadTasks(getSelectedProject().getId());
+    }//GEN-LAST:event_jListProjectsMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -337,7 +349,7 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JTable jTableTasks;
     // End of variables declaration//GEN-END:variables
 
-    private void initDataDAO() {
+    private void initDAO() {
         projectDAO = new ProjectDAO();
         taskDAO = new TaskDAO();
     }
@@ -345,6 +357,11 @@ public class MainScreen extends javax.swing.JFrame {
     private void initComponentsModel() {
         projectsModel = new DefaultListModel<>();
         loadProjects();
+        if (!projectsModel.isEmpty()) {
+            jListProjects.setSelectedIndex(0);
+            tasksModel = new TaskTableModel();
+            jTableTasks.setModel(tasksModel);
+        }
     }
 
     private void loadProjects() {
@@ -354,6 +371,11 @@ public class MainScreen extends javax.swing.JFrame {
             projectsModel.addElement(project);
         }
         jListProjects.setModel(projectsModel);
+    }
+    
+    private void loadTasks(int idProject) {
+        List<Task> tasks = taskDAO.getAllTasksFromProject(idProject);
+        tasksModel.setTasks(tasks);
     }
     
     private Project getSelectedProject() {
