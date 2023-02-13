@@ -376,6 +376,7 @@ public class MainScreen extends javax.swing.JFrame {
     private void loadTasks(int idProject) {
         List<Task> tasks = taskDAO.getAllTasksFromProject(idProject);
         tasksModel.setTasks(tasks);
+        tasksModel.fireTableDataChanged(); /*Notifies data changes to JTable*/
     }
     
     private Project getSelectedProject() {
