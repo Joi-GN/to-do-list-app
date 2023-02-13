@@ -225,7 +225,6 @@ public class TaskDialogScreen extends javax.swing.JDialog {
                 
                 try {
                     deadline = LocalDate.ofInstant(jDateChooserDeadline.getDate().toInstant(), ZoneId.systemDefault());
-                    JOptionPane.showMessageDialog(rootPane, deadline);
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(rootPane, e.getMessage());
                 }

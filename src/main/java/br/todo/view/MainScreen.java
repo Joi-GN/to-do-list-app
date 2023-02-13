@@ -31,6 +31,11 @@ public class MainScreen extends javax.swing.JFrame {
         initDAO();
         initComponentsModel();
         styleTableTasks();
+        loadProjects();
+        if (!projectsModel.isEmpty()) {
+            jListProjects.setSelectedIndex(0);
+            loadTasks(getSelectedProject().getId());
+        }
     }
 
     /**
@@ -356,13 +361,9 @@ public class MainScreen extends javax.swing.JFrame {
     
     private void initComponentsModel() {
         projectsModel = new DefaultListModel<>();
-        loadProjects();
-        if (!projectsModel.isEmpty()) {
-            jListProjects.setSelectedIndex(0);
-            tasksModel = new TaskTableModel();
-            jTableTasks.setModel(tasksModel);
-            loadTasks(getSelectedProject().getId());
-        }
+        jListProjects.setModel(projectsModel);
+        tasksModel = new TaskTableModel();
+        jTableTasks.setModel(tasksModel);
     }
 
     private void loadProjects() {
@@ -371,7 +372,6 @@ public class MainScreen extends javax.swing.JFrame {
         for (Project project : projects) {
             projectsModel.addElement(project);
         }
-        jListProjects.setModel(projectsModel);
     }
     
     private void loadTasks(int idProject) {
